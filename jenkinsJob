@@ -1,6 +1,6 @@
 Tick on
 Github project 
-https://github.com/opsmx11/boostApp.git/
+https://github.com/opsmx/boostApp.git/
 
 Tick on
 GitHub hook trigger for GITScm polling
@@ -13,7 +13,7 @@ node {
     def container;
     stage('Clone repository') {
         echo "Cloning springboot sample application and building with maven.."
-        git url:'https://github.com/opsmx11/boostApp.git'
+        git url:'https://github.com/opsmx/boostApp.git'
         def mvnHome = tool 'M3'
         sh "${mvnHome}/bin/mvn -Dmaven.repo.local=${pwd tmp: true}/m2repo -B -DskipTests clean package"
     }
