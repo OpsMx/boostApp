@@ -33,7 +33,7 @@ node {
         }
     }
     stage('Push Image') {
-        sh "sudo docker login index.docker.io --username <username> --password <password>"
+        sh "sudo docker login index.docker.io --username opsmx11 --password <password>"
         sh "sudo docker tag boostapp:$BUILD_NUMBER index.docker.io/opsmx11/restapp:latest"
         echo "Build: $BUILD_NUMBER";
         sh "sudo docker push index.docker.io/opsmx11/restapp:latest"
