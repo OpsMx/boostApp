@@ -1,0 +1,41 @@
+Tick on
+Github project 
+https://github.com/opsmx11/boostApp.git/
+
+Tick on
+GitHub hook trigger for GITScm polling
+
+
+Pipeline defination
+node {
+    def app;
+    def ip;
+    def container;
+    stage('Clone repository') {
+        echo "Cloning springboot sample application and building with maven.."
+        git url:'https://github.com/opsmx11/boostApp.git'
+        def mvnHome = tool 'M3'
+        sh "${mvnHome}/bin/mvn -Dmaven.repo.local=${pwd tmp: true}/m2repo -B -DskipTests clean package"
+    }
+    stage('Build Docker Image') {
+            docker.withServer('tcp://localhost:4342'){
+            echo "Baking jar to docker image ..."
+            def Img = docker.build("boostapp:${env.BUILD_NUMBER}")
+            echo "Image id: $Img.id";
+            echo "Build no: $BUILD_NUMBER";
+            echo "Launching container using this image.."
+
+            container = Img.run()
+            echo "Container id: $container.id";
+            sh "sudo docker inspect -f '{{ .NetworkSettings.IPAddress }}' ${container.id} > cont_ip";
+            ip=readFile('cont_ip').trim()
+            echo "Container ip: $ip";
+        }
+    }
+    stage('Push Image') {
+        sh "sudo docker login index.docker.io --username <username> --password <password>"
+        sh "sudo docker tag boostapp:$BUILD_NUMBER index.docker.io/opsmx11/restapp:latest"
+        echo "Build: $BUILD_NUMBER";
+        sh "sudo docker push index.docker.io/opsmx11/restapp:$BUILD_NUMBER"
+        }
+}
