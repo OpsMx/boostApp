@@ -1,11 +1,14 @@
-# boostApp is springboot app 
+# boostApp Repo 
 
-For jar
-./mvn clean install -e 
 
-in target folder resapp.jar created.by running jar 
-java  -jar restapp.jar
+This Repository contains three module 
 
-access by this url  http://localhost:8090/greeting
+###A simple Springboot rest Application pipeline
+readme Doc Link - https://github.com/OpsMx/boostApp/blob/master/src/README.md
 
+###Jenkins job
+readme Doc Link - https://github.com/OpsMx/boostApp/blob/master/jenkins/README.md
+
+###spinnaker pipeline
+readme Doc Link - https://github.com/OpsMx/boostApp/blob/master/spinnaker/README.md
 
