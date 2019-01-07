@@ -1,4 +1,4 @@
-# source of spring-boot app 
+# Source code of spring-boot app 
 
 This folder contains source code of a simple spingboot rest application
 
