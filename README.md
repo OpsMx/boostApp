@@ -9,6 +9,6 @@ readme Doc Link - https://github.com/OpsMx/boostApp/blob/master/src/README.md
 ### Jenkins job
 readme Doc Link - https://github.com/OpsMx/boostApp/blob/master/jenkins/README.md
 
-### spinnaker pipeline
+### Spinnaker pipeline
 readme Doc Link - https://github.com/OpsMx/boostApp/blob/master/spinnaker/README.md
 
