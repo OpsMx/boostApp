@@ -13,7 +13,7 @@ node {
     def container;
     stage('Clone repository') {
         echo "Cloning springboot sample application and building with maven.."
-        git url:'https://github.com/lalitv92/boostApp.git'
+        git url:PLACEHOLDER
         def mvnHome = tool 'M3'
         sh "${mvnHome}/bin/mvn -Dmaven.repo.local=${pwd tmp: true}/m2repo -B -DskipTests clean package"
     }
@@ -34,8 +34,8 @@ node {
     }
     stage('Push Image') {
         sh "sudo docker login index.docker.io --username PLACEHOLDER --password PLACEHOLDER!"
-        sh "sudo docker tag boostapp:$BUILD_NUMBER index.docker.io/opsmx11/restapp:boostapp"
+        sh "sudo docker tag boostapp:$BUILD_NUMBER PLACEHOLDER"
         echo "Build: $BUILD_NUMBER";
-        sh "sudo docker push index.docker.io/opsmx11/restapp:boostapp"
+        sh "sudo docker push PLACEHOLDER"
         }
 }

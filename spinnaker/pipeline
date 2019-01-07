@@ -6,7 +6,7 @@
     {
       "clusters": [
         {
-          "account": "my-k8s-account",
+          "account": "PLACEHOLDER",
           "application": "beta",
           "cloudProvider": "kubernetes",
           "containers": [
@@ -16,15 +16,15 @@
               "envFrom": [],
               "envVars": [],
               "imageDescription": {
-                "account": "opsmx-docker-registry",
-                "imageId": "index.docker.io/opsmx11/restapp:boostapp",
-                "registry": "index.docker.io",
-                "repository": "opsmx11/restapp",
-                "tag": "boostapp"
+                "account": "PLACEHOLDER",
+                "imageId": "PLACEHOLDER",
+                "registry": "PLACEHOLDER",
+                "repository": "PLACEHOLDER",
+                "tag": "PLACEHOLDER"
               },
               "imagePullPolicy": "IFNOTPRESENT",
               "limits": {},
-              "name": "opsmx11-restapp",
+              "name": "PLACEHOLDER",
               "ports": [],
               "requests": {},
               "volumeMounts": []
@@ -75,8 +75,8 @@
     {
       "continuePipeline": false,
       "failPipeline": true,
-      "job": "restApp_withdatadog",
-      "master": "my-jenkins-master",
+      "job": "PLACEHOLDER",
+      "master": "PLACEHOLDER",
       "name": "Jenkins",
       "parameters": {},
       "refId": "2",
