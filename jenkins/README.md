@@ -2,9 +2,9 @@
 This Jenkins job is to pull your application source code from GitHub and build your application by maven, then create docker image and push this image to the docker image repository.
 
 To run this Jenkins job few prerequisite Jenkins plugin required
-1 git 
-2 maven
-and running docker daemon
+1. git 
+2. maven
+3. running docker daemon
 
 
 change 'PLACEHOLDER' string with an appropriate value according to your environment 
