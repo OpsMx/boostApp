@@ -3,7 +3,7 @@
 
 This Repository contains three module 
 
-### A simple Springboot rest Application pipeline
+### A simple Springboot rest Application
 readme Doc Link - https://github.com/OpsMx/boostApp/blob/master/src/README.md
 
 ### Jenkins job
