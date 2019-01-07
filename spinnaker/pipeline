@@ -1,0 +1,89 @@
+{
+  "keepWaitingPipelines": false,
+  "lastModifiedBy": "anonymous",
+  "limitConcurrent": true,
+  "stages": [
+    {
+      "clusters": [
+        {
+          "account": "my-k8s-account",
+          "application": "beta",
+          "cloudProvider": "kubernetes",
+          "containers": [
+            {
+              "args": [],
+              "command": [],
+              "envFrom": [],
+              "envVars": [],
+              "imageDescription": {
+                "account": "opsmx-docker-registry",
+                "imageId": "index.docker.io/opsmx11/restapp:boostapp",
+                "registry": "index.docker.io",
+                "repository": "opsmx11/restapp",
+                "tag": "boostapp"
+              },
+              "imagePullPolicy": "IFNOTPRESENT",
+              "limits": {},
+              "name": "opsmx11-restapp",
+              "ports": [],
+              "requests": {},
+              "volumeMounts": []
+            }
+          ],
+          "deployment": {
+            "deploymentStrategy": {
+              "rollingUpdate": {
+                "maxSurge": 1,
+                "maxUnavailable": 1
+              },
+              "type": "RollingUpdate"
+            },
+            "enabled": false,
+            "minReadySeconds": 0
+          },
+          "dnsPolicy": "ClusterFirst",
+          "freeFormDetails": "app",
+          "initContainers": [],
+          "interestingHealthProviderNames": [
+            "KubernetesContainer",
+            "KubernetesPod"
+          ],
+          "loadBalancers": [
+            "beta-rest"
+          ],
+          "namespace": "default",
+          "nodeSelector": {},
+          "podAnnotations": {},
+          "provider": "kubernetes",
+          "region": "default",
+          "replicaSetAnnotations": {},
+          "stack": "rest",
+          "strategy": "highlander",
+          "targetSize": 2,
+          "terminationGracePeriodSeconds": 30,
+          "useSourceCapacity": false,
+          "volumeSources": []
+        }
+      ],
+      "name": "Deploy",
+      "refId": "1",
+      "requisiteStageRefIds": [
+        "2"
+      ],
+      "type": "deploy"
+    },
+    {
+      "continuePipeline": false,
+      "failPipeline": true,
+      "job": "restApp_withdatadog",
+      "master": "my-jenkins-master",
+      "name": "Jenkins",
+      "parameters": {},
+      "refId": "2",
+      "requisiteStageRefIds": [],
+      "type": "jenkins"
+    }
+  ],
+  "triggers": [],
+  "updateTs": "1546857861238"
+}
