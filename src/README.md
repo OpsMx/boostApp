@@ -9,7 +9,7 @@ After building
 in the target folder, boostApp.jar will create after finishing a build process
 
 Run jar by command 
-java  -jar restapp.jar
+java  -jar boostApp.jar
 
 access by this URL  http://localhost:8090/greeting
 
