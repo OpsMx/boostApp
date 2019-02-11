@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.Properties;
 
 
 @CrossOrigin
@@ -17,10 +18,12 @@ import java.io.InputStreamReader;
 public class GreetingController {
 
 	private static final Logger LOG = LoggerFactory.getLogger(GreetingController.class);
-
+	static PropertiesUtil proUtil = new PropertiesUtil();
+	static Properties properties = proUtil.getInstance();
+	
 	@RequestMapping("/greeting")
 	public String greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
-
+		
 		String query;
 		StringBuffer sb = new StringBuffer();
 		String query2;
@@ -33,12 +36,8 @@ public class GreetingController {
 				sb.append(query);
 			br.close();
 
-			String whichdog = "dog1";
-
-			/* Introducing Arch. regression */
-
-			//whichdog = "dog2";
-			/* till here */
+			String whichdog = properties.getProperty("app.dog.image").toString();
+			System.out.println("cheking ::: ::: :::: :::: "+whichdog );
 
 			BufferedReader br2 = new BufferedReader(new InputStreamReader(cl.getResource(whichdog).openStream()));
 			while ((query2 = br2.readLine()) != null)
